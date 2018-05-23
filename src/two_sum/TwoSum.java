@@ -26,6 +26,10 @@ public class TwoSum {
 		return idxResult;
 	}
 
+	/**
+	 * 时间复杂度 O(n)
+	 * 空间复杂度 O(n)
+	 */
 	public static int[] solution2(int[] nums, int target) {
 		int[] idxResult = {0, 0};
 		//key:值 value:索引
@@ -43,13 +47,33 @@ public class TwoSum {
 		return idxResult;
 	}
 
+	/**
+	 * 时间复杂度 O(1)
+	 * 空间复杂度 O(n)
+	 */
+	public static int[] solution3(int[] nums, int target) {
+		int[] idxResult = {0, 0};
+		//key:值 value:索引
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			int aim = target - nums[i];
+			if (map.containsKey(aim)) {
+				idxResult[0] = i;
+				idxResult[1] = map.get(aim);
+			}
+			map.put(nums[i], i);
+		}
+		return idxResult;
+	}
+
 
 	public static void main(String[] args) {
 		int[] nums = {2, 7, 11, 15};
 		int target = 9;
 
 //		int[] idxResult = solution1(nums, target);
-		int[] idxResult = solution2(nums, target);
+//		int[] idxResult = solution2(nums, target);
+		int[] idxResult = solution3(nums, target);
 
 		for (int i = 0; i < idxResult.length; i++) {
 			System.out.println(idxResult[i]);
