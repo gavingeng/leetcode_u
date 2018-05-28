@@ -30,3 +30,6 @@ hs_err_pid*
 
 #bin files
 bin
+
+#mac files
+.DS_Store
