@@ -39,6 +39,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 	}
 
+	if carry > 0 {
+		curNode.Next = &ListNode{Val: carry}
+	}
+
 	return retNode.Next
 }
 
@@ -61,8 +65,17 @@ func test() {
 
 	node := addTwoNumbers(&l1, &l2)
 	show(node)
-
 }
+
+func test1() {
+	l1 := ListNode{Val: 5, Next: nil}
+	l2 := ListNode{Val: 5, Next: nil}
+
+	node := addTwoNumbers(&l1, &l2)
+	show(node)
+}
+
 func main() {
 	test()
+	//test1()
 }

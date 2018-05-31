@@ -4,4 +4,6 @@
 官方给的solution：
 https://leetcode.com/problems/add-two-numbers/solution/
 
+哎，疏忽了，test case少，反而没发现问题
+
 ```

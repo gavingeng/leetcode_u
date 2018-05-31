@@ -20,6 +20,8 @@ public class AddTwoNumbers {
 			l1 = l1 == null ? null : l1.next;
 			l2 = l2 == null ? null : l2.next;
 		}
+		if (carry > 0)
+			curNode.next = new ListNode(carry);
 		return retNode.next;
 	}
 
@@ -50,8 +52,7 @@ public class AddTwoNumbers {
 		System.out.println(buffer.toString());
 	}
 
-
-	public static void main(String[] args) {
+	public static void test() {
 		ListNode l1 = new ListNode(2);
 		l1.next = new ListNode(4);
 		l1.next.next = new ListNode(3);
@@ -64,7 +65,21 @@ public class AddTwoNumbers {
 		ListNode ret = addTwoNumbers(l1, l2);
 		ListNode head = reverse(ret);
 		print(head);
+	}
 
+	public static void test1() {
+		ListNode l1 = new ListNode(5);
+
+		ListNode l2 = new ListNode(5);
+
+		ListNode ret = addTwoNumbers(l1, l2);
+		ListNode head = reverse(ret);
+		print(head);
+	}
+
+	public static void main(String[] args) {
+//		test();
+		test1();
 	}
 }
 

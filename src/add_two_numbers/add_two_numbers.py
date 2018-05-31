@@ -36,6 +36,9 @@ class Solution(object):
             l1 = None if l1 == None else l1.next
             l2 = None if l2 == None else l2.next
 
+        if carry > 0:
+            curNode.next = ListNode(carry)
+
         return retNode.next
 
     def show(self, node):
@@ -59,8 +62,17 @@ def test():
     s.show(node)
 
 
+def test1():
+    l1 = ListNode(5)
+    l2 = ListNode(5)
+    s = Solution()
+    node = s.addTwoNumbers(l1, l2)
+    s.show(node)
+
+
 def main():
     test()
+    test1()
 
 
 if __name__ == '__main__':
