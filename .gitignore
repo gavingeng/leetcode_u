@@ -33,3 +33,5 @@ bin
 
 #mac files
 .DS_Store
+.vscode/
+venv/
