@@ -25,11 +25,31 @@ public class LongestSubString {
 		return ret;
 	}
 
+	/**
+	 * 这个参考了解决方案来写的，根据字符的特性，128个字节完全可以解决,比map省
+	 *
+	 * @param s
+	 * @return
+	 */
+	public static int lengthOfLongestSubstringASCII(String s) {
+		int length = s.length();
+		int ret = 0;
+		int[] idx = new int[128];
+		for (int i = 0, j = 0; j < length; j++) {
+			i = Math.max(idx[s.charAt(j)], i);
+			ret = Math.max(ret, j - i + 1);
+			idx[s.charAt(j)] = j + 1;
+		}
+
+		return ret;
+	}
+
 	public static void main(String[] args) {
 		String s = "abcabcbb";
-		s = "bbbbb";
-		s = "abba";
-		int size = lengthOfLongestSubstring(s);
+//		s = "bbbbb";
+//		s = "abba";
+//		int size = lengthOfLongestSubstring(s);
+		int size = lengthOfLongestSubstringASCII(s);
 		System.out.println("size=" + size);
 	}
 }
