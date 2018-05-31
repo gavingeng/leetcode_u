@@ -16,7 +16,7 @@ public class LongestSubString {
 		Map<Character, Integer> map = new HashMap<>();
 		for (int i = 0, j = 0; j < length; j++) {
 			if (map.containsKey(s.charAt(j))) {
-				i = map.get(s.charAt(j));
+				i = Math.max(map.get(s.charAt(j)), i);
 			}
 			ret = Math.max(ret, j - i + 1);
 			map.put(s.charAt(j), j + 1);
@@ -28,6 +28,7 @@ public class LongestSubString {
 	public static void main(String[] args) {
 		String s = "abcabcbb";
 		s = "bbbbb";
+		s = "abba";
 		int size = lengthOfLongestSubstring(s);
 		System.out.println("size=" + size);
 	}
