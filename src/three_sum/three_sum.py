@@ -34,19 +34,19 @@ def threeSum(nums):
                 ret.append(inner)
 
                 while (j < k and nums[j] == nums[j + 1]):
-                    j = j + 1
+                    j += 1
 
                 while (j < k and nums[k] == nums[k - 1]):
-                    k = k - 1
+                    k -= 1
 
-                j = j + 1
+                j += 1
             else:
                 if nums[j] + nums[k] < target:
-                    j = j + 1
+                    j += 1
                 else:
-                    k = k - 1
+                    k -= 1
         while (i < len(nums) - 2 and nums[i] == nums[i + 1]):
-            i = i + 1
+            i += 1
             jump = i + 1
 
     return ret
