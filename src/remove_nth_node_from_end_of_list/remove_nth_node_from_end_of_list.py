@@ -21,11 +21,40 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
-        pass
+        tmpNode = ListNode(0)
+        tmpNode.next = head
+
+        fast = tmpNode
+        slow = tmpNode
+
+        idx = 0
+        while idx < n:
+            fast = fast.next
+            idx += 1
+
+        while fast.next != None:
+            fast = fast.next
+            slow = slow.next
+
+        slow.next = slow.next.next
+
+        return tmpNode.next
+
+
+def test():
+    s = Solution()
+    head = ListNode(1)
+    head.next = ListNode(2)
+    n = 2
+    retNode = s.removeNthFromEnd(head, n)
+
+    while retNode != None:
+        print retNode.val
+        retNode = retNode.next
 
 
 def main():
-    pass
+    test()
 
 
 if __name__ == '__main__':

@@ -47,20 +47,21 @@ public class RemoveNthNodeFromEndofList {
 	
 	/**
 	 * 一次遍历，两个指针，间隔n步来做删除，大部分的链表都是这种操作
+	 * 加入临时节点 tmpNode，循环遍历是处理空的情况【我竟然没想到......】
 	 *
 	 * @param head
 	 * @param n
 	 * @return
 	 */
 	public static ListNode removeNthFromEnd1(ListNode head, int n) {
-		ListNode fast = head;
-		ListNode slow = head;
+		ListNode tmpNode = new ListNode(0);
+		tmpNode.next = head;
+		ListNode fast = tmpNode;
+		ListNode slow = tmpNode;
 		
 		for (int i = 0; i < n; i++) {
 			fast = fast.next;
 		}
-		
-		
 		
 		while (fast.next != null) {
 			fast = fast.next;
@@ -69,7 +70,7 @@ public class RemoveNthNodeFromEndofList {
 		
 		slow.next = slow.next.next;
 		
-		return head;
+		return tmpNode.next;
 	}
 	
 	
@@ -81,13 +82,13 @@ public class RemoveNthNodeFromEndofList {
 //		head.next.next.next.next = new ListNode(5);
 //
 //		int n = 2;
-
-//		ListNode head = new ListNode(1);
-//		int n = 1;
 		
 		ListNode head = new ListNode(1);
-		head.next = new ListNode(2);
-		int n = 2;
+		int n = 1;
+
+//		ListNode head = new ListNode(1);
+//		head.next = new ListNode(2);
+//		int n = 2;
 		
 		ListNode retNode = removeNthFromEnd1(head, n);
 		while (retNode != null) {
