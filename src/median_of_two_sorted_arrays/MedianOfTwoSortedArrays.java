@@ -6,7 +6,7 @@ package median_of_two_sorted_arrays;
  */
 public class MedianOfTwoSortedArrays {
 	
-	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+	public static double findMedianSortedArrays1(int[] nums1, int[] nums2) {
 		int m = nums1.length;
 		int n = nums2.length;
 		//确保m<=n
@@ -61,7 +61,7 @@ public class MedianOfTwoSortedArrays {
 	public static void main(String[] args) {
 		int[] nums1 = {1, 2};
 		int[] nums2 = {3, 4, 5};
-		double d = findMedianSortedArrays(nums1, nums2);
+		double d = findMedianSortedArrays1(nums1, nums2);
 		System.out.println(d);
 	}
 }
